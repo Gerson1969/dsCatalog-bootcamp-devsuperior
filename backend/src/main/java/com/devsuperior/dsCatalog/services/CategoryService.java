@@ -60,12 +60,10 @@ public class CategoryService {
 
 	public void delete(Long id) {
 		try {
-			repository.deleteById(id);			
-		}
-		catch (EmptyResultDataAccessException e){
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException("Id Not Found" + id);
-		}
-		catch (DataIntegrityViolationException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new DataBaseException("Integrity Violation");
 		}
 	}
